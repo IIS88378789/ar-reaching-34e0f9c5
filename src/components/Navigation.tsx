@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "產品資訊", href: "#products" },
@@ -14,13 +24,15 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-md">
+    <nav className={`fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300 ${
+      scrolled ? "bg-background text-foreground" : "bg-primary text-primary-foreground"
+    }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img src={logo} alt="Aerobatic Logo" className="h-12 w-auto" />
-            <div className="text-primary-foreground">
+            <div>
               <div className="font-bold text-lg leading-tight">尹航科技有限公司</div>
               <div className="text-xs opacity-90">Aerobatic Technologies Ltd.</div>
             </div>
@@ -32,7 +44,9 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="px-4 py-2 text-primary-foreground hover:bg-white/10 rounded-md transition-colors"
+                className={`px-4 py-2 rounded-md transition-colors ${
+                  scrolled ? "hover:bg-accent" : "hover:bg-white/10"
+                }`}
               >
                 {item.name}
               </a>
@@ -45,7 +59,7 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-primary-foreground p-2"
+            className="md:hidden p-2"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -58,7 +72,9 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="block px-4 py-3 text-primary-foreground hover:bg-white/10 rounded-md transition-colors"
+                className={`block px-4 py-3 rounded-md transition-colors ${
+                  scrolled ? "hover:bg-accent" : "hover:bg-white/10"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
