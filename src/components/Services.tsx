@@ -20,7 +20,7 @@ const Services = () => {
     },
     {
       icon: Headphones,
-      title: "技術支援維護",
+      title: "多軸飛行模擬器設計, 維修",
       description: "完善的售後服務體系，提供設備維護、技術諮詢與零件更換服務，確保系統穩定運作。",
     },
   ];
