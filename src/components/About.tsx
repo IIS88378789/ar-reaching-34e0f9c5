@@ -57,12 +57,7 @@ const About = () => {
                   </div>
                 </div>
                 <div className="bg-white p-6 md:p-8 h-full flex items-center justify-center">
-                  <img 
-                    src={isoCertificate} 
-                    alt="ISO 9001:2015 證書" 
-                    title="2025年8月18日 ISO 9001:2015 核發"
-                    className="w-full h-auto max-w-md object-contain animate-fade-in"
-                  />
+                  <img src={isoCertificate} alt="ISO 9001:2015 證書" title="2025年8月18日 ISO 9001:2015 核發" className="w-full h-auto max-w-md object-contain animate-fade-in" />
                 </div>
               </div>
             </CardContent>
@@ -72,15 +67,7 @@ const About = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => {
           const Icon = stat.icon;
-          return <div key={index} className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center">
-                  <Icon className="w-8 h-8 text-accent" />
-                </div>
-                <div className="text-4xl font-bold text-primary mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </div>;
+          return;
         })}
         </div>
       </div>
