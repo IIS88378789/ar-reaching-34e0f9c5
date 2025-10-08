@@ -60,6 +60,7 @@ const About = () => {
                   <img 
                     src={isoCertificate} 
                     alt="ISO 9001:2015 證書" 
+                    title="2025年8月18日 ISO 9001:2015 核發"
                     className="w-full h-auto max-w-md object-contain animate-fade-in"
                   />
                 </div>
