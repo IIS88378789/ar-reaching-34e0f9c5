@@ -15,7 +15,7 @@ const Services = () => {
     },
     {
       icon: GraduationCap,
-      title: "專業訓練服務",
+      title: "航空教學設備",
       description: "提供專業的飛行訓練課程與模擬器操作培訓，協助航空院校與訓練機構提升教學品質。",
     },
     {
