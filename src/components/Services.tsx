@@ -10,7 +10,7 @@ const Services = () => {
     },
     {
       icon: Settings,
-      title: "客製化解決方案",
+      title: "飛機, 發動機維修, 組裝",
       description: "根據客戶需求設計與開發專屬的飛行訓練系統，從規劃、設計到安裝，提供一站式整合服務。",
     },
     {
