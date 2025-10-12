@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GraduationCap, Heart, Shield, Target } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
 
 interface Policy {
   icon: any;
@@ -11,8 +9,7 @@ interface Policy {
 }
 
 const QualityPolicy = () => {
-  const { toast } = useToast();
-  const [policies, setPolicies] = useState<Policy[]>([
+  const [policies] = useState<Policy[]>([
     {
       icon: GraduationCap,
       title: "教育訓練",
@@ -38,43 +35,6 @@ const QualityPolicy = () => {
       iconColor: "text-accent",
     },
   ]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const generatePolicies = async () => {
-      setIsLoading(true);
-      try {
-        const { data, error } = await supabase.functions.invoke('generate-quality-policy');
-        
-        if (error) throw error;
-        
-        if (data?.policies) {
-          const icons = [GraduationCap, Heart, Shield, Target];
-          const colors = ["text-primary", "text-accent", "text-primary", "text-accent"];
-          
-          const updatedPolicies = data.policies.map((policy: any, index: number) => ({
-            icon: icons[index],
-            title: policy.title,
-            content: policy.content,
-            iconColor: colors[index],
-          }));
-          
-          setPolicies(updatedPolicies);
-        }
-      } catch (error: any) {
-        console.error('Error generating policies:', error);
-        toast({
-          title: "無法載入 AI 生成內容",
-          description: "使用預設內容顯示",
-          variant: "destructive",
-        });
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    generatePolicies();
-  }, [toast]);
 
   return (
     <section id="quality-policy" className="py-20 bg-background relative overflow-hidden">
@@ -116,7 +76,7 @@ const QualityPolicy = () => {
                     {policy.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed text-sm text-left">
-                    {isLoading ? "生成中..." : policy.content}
+                    {policy.content}
                   </p>
 
                   {/* Subtle hover indicator */}
