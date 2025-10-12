@@ -18,22 +18,37 @@ const News = () => {
     title: "中華科技大學簽署 A320 模擬機訓練合作計畫",
     excerpt: "本公司與中華科技大學航空學院簽署合作協議，共同推動專業飛行訓練計畫，提升航空人才培訓品質。",
     category: "合作夥伴",
-    bgGradient: "from-blue-500/10 to-cyan-500/10",
     image: newsSimulator
   }, {
     date: "2024年2月28日",
     title: "新一代六自由度運動平台正式發表",
     excerpt: "經過兩年研發，最新型六自由度運動平台系統正式發表，具備更高精度與更廣泛的應用範圍。",
     category: "產品發表",
-    bgGradient: "from-purple-500/10 to-pink-500/10",
     image: newsMotion
   }, {
     date: "2024年1月10日",
     title: "參展2024亞洲航空技術展覽會",
     excerpt: "本公司將參加年度亞洲最大航空技術展，展示最新的飛行訓練系統與模擬設備解決方案。",
     category: "活動資訊",
-    bgGradient: "from-emerald-500/10 to-teal-500/10",
     image: newsExhibition
+  }, {
+    date: "2023年12月20日",
+    title: "完成 B737-800 模擬機系統升級專案",
+    excerpt: "成功完成某航空公司 B737-800 全動式模擬機的系統升級，提升訓練效能與真實度。",
+    category: "專案成果",
+    image: newsSimulator
+  }, {
+    date: "2023年11月8日",
+    title: "與國際航空組織簽訂技術合作備忘錄",
+    excerpt: "正式與國際航空訓練標準組織簽署技術合作協議，共同推動亞太地區航空訓練標準化。",
+    category: "合作夥伴",
+    image: newsExhibition
+  }, {
+    date: "2023年10月15日",
+    title: "運動平台系統獲得 FAA 認證",
+    excerpt: "本公司最新開發的六自由度運動平台系統通過美國聯邦航空總署 FAA Level D 認證。",
+    category: "產品認證",
+    image: newsMotion
   }];
   return <section id="news" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -51,35 +66,37 @@ const News = () => {
           <CarouselContent>
             {newsItems.map((item, index) => <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-2">
-                  <Card className={`overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br ${item.bgGradient} border-2 group`}>
-                    <div className="relative h-48 overflow-hidden">
-                      <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                      <div className="absolute top-3 left-3 inline-block px-3 py-1 bg-accent text-primary-foreground rounded-full text-xs font-medium">
+                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-card border border-border/50 group relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative h-56 overflow-hidden bg-muted">
+                      <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                      <div className="absolute bottom-3 left-3 inline-block px-4 py-1.5 bg-background/90 backdrop-blur-sm text-foreground border border-border rounded text-xs font-semibold tracking-wide">
                         {item.category}
                       </div>
                     </div>
-                    <CardContent className="p-6">
+                    <CardContent className="p-6 relative">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                        <Calendar size={16} />
-                        <span>{item.date}</span>
+                        <Calendar size={14} className="text-accent" />
+                        <span className="font-medium">{item.date}</span>
                       </div>
-                      <h3 className="text-xl font-bold mb-3 text-foreground">
+                      <h3 className="text-xl font-bold mb-3 text-foreground leading-tight group-hover:text-accent transition-colors duration-300">
                         {item.title}
                       </h3>
-                      <p className="text-muted-foreground mb-4 line-clamp-3">
+                      <p className="text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
                         {item.excerpt}
                       </p>
-                      <Button variant="link" className="p-0 h-auto text-accent hover:text-accent/80">
+                      <Button variant="link" className="p-0 h-auto text-accent hover:text-accent/80 font-semibold group/btn">
                         閱讀更多
-                        <ArrowRight size={16} className="ml-1" />
+                        <ArrowRight size={16} className="ml-1 transition-transform group-hover/btn:translate-x-1" />
                       </Button>
                     </CardContent>
                   </Card>
                 </div>
               </CarouselItem>)}
           </CarouselContent>
-          <CarouselPrevious className="left-2" />
-          <CarouselNext className="right-2" />
+          <CarouselPrevious className="left-2 bg-background/90 backdrop-blur-sm border-border hover:bg-accent hover:text-accent-foreground" />
+          <CarouselNext className="right-2 bg-background/90 backdrop-blur-sm border-border hover:bg-accent hover:text-accent-foreground" />
         </Carousel>
 
         <div className="text-center">
