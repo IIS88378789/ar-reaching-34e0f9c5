@@ -1,0 +1,4 @@
+project_id = "brlfqgqcdyetkhhghteq"
+
+[functions.generate-quality-policy]
+verify_jwt = false

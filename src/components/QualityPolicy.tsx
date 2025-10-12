@@ -1,37 +1,80 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useState } from "react";
 import { GraduationCap, Heart, Shield, Target } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+
+interface Policy {
+  icon: any;
+  title: string;
+  content: string;
+  iconColor: string;
+}
 
 const QualityPolicy = () => {
-  const policies = [
+  const { toast } = useToast();
+  const [policies, setPolicies] = useState<Policy[]>([
     {
       icon: GraduationCap,
       title: "教育訓練",
-      subtitle: "能力提昇、風險預防",
-      bgGradient: "from-blue-500/10 to-cyan-500/10",
-      iconColor: "text-blue-500",
+      content: "持續投資員工專業培訓，建立完善的風險管理機制，確保團隊具備最新技術知識與安全意識。",
+      iconColor: "text-primary",
     },
     {
       icon: Heart,
       title: "服務熱忱",
-      subtitle: "完善服務、精度可靠",
-      bgGradient: "from-red-500/10 to-pink-500/10",
-      iconColor: "text-red-500",
+      content: "以客戶需求為核心，提供即時且完善的技術支援，確保每個環節都達到精準可靠的品質標準。",
+      iconColor: "text-accent",
     },
     {
       icon: Shield,
       title: "品質保固",
-      subtitle: "專業用心、保固放心",
-      bgGradient: "from-green-500/10 to-emerald-500/10",
-      iconColor: "text-green-500",
+      content: "採用國際認證標準，提供完整的產品保固服務，讓客戶在使用過程中安心無憂。",
+      iconColor: "text-primary",
     },
     {
       icon: Target,
       title: "永續經營",
-      subtitle: "不斷提昇、客戶滿意",
-      bgGradient: "from-purple-500/10 to-violet-500/10",
-      iconColor: "text-purple-500",
+      content: "持續優化產品與服務，建立長期合作夥伴關係，以客戶滿意度為企業永續發展的核心目標。",
+      iconColor: "text-accent",
     },
-  ];
+  ]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const generatePolicies = async () => {
+      setIsLoading(true);
+      try {
+        const { data, error } = await supabase.functions.invoke('generate-quality-policy');
+        
+        if (error) throw error;
+        
+        if (data?.policies) {
+          const icons = [GraduationCap, Heart, Shield, Target];
+          const colors = ["text-primary", "text-accent", "text-primary", "text-accent"];
+          
+          const updatedPolicies = data.policies.map((policy: any, index: number) => ({
+            icon: icons[index],
+            title: policy.title,
+            content: policy.content,
+            iconColor: colors[index],
+          }));
+          
+          setPolicies(updatedPolicies);
+        }
+      } catch (error: any) {
+        console.error('Error generating policies:', error);
+        toast({
+          title: "無法載入 AI 生成內容",
+          description: "使用預設內容顯示",
+          variant: "destructive",
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    generatePolicies();
+  }, [toast]);
 
   return (
     <section id="quality-policy" className="py-20 bg-background relative overflow-hidden">
@@ -48,42 +91,41 @@ const QualityPolicy = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {policies.map((policy, index) => {
             const Icon = policy.icon;
             return (
-              <Card
+              <div
                 key={index}
-                className={`group relative overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 bg-gradient-to-br ${policy.bgGradient} backdrop-blur-sm`}
+                className="group relative animate-fade-in"
                 style={{
                   animationDelay: `${index * 100}ms`,
                 }}
               >
-                <CardContent className="p-8 text-center bg-transparent">
-                  {/* Icon container with animation */}
-                  <div className="relative mb-6">
-                    <div className="w-20 h-20 mx-auto bg-background rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                      <Icon className={`w-10 h-10 ${policy.iconColor} transition-transform duration-300 group-hover:rotate-12`} />
+                {/* Glass card with transparent background */}
+                <div className="relative p-8 text-center bg-card/50 backdrop-blur-sm border border-border/30 rounded-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:bg-card/70">
+                  {/* Icon */}
+                  <div className="mb-6">
+                    <div className="w-16 h-16 mx-auto bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
+                      <Icon className={`w-8 h-8 ${policy.iconColor} transition-transform duration-300`} />
                     </div>
-                    {/* Animated ring */}
-                    <div className="absolute inset-0 mx-auto w-20 h-20 rounded-full border-2 border-accent/20 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-500" />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-2xl font-bold mb-3 text-foreground">
+                  <h3 className="text-xl font-bold mb-4 text-foreground">
                     {policy.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed text-sm">
-                    {policy.subtitle}
+                    {isLoading ? "生成中..." : policy.content}
                   </p>
 
-                  {/* Bottom accent line */}
-                  <div className="mt-6 h-1 w-0 group-hover:w-full bg-gradient-to-r from-accent to-primary transition-all duration-500 rounded-full mx-auto" />
-                </CardContent>
+                  {/* Subtle hover indicator */}
+                  <div className="mt-6 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-primary/50 via-accent/50 to-primary/50 transition-all duration-500 mx-auto" />
+                </div>
 
-                {/* Hover overlay effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              </Card>
+                {/* Subtle glow effect on hover */}
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10 blur-xl" />
+              </div>
             );
           })}
         </div>
