@@ -44,8 +44,8 @@ const Hero = () => {
 
         {/* Tech Stats */}
         <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-          {[{
-          number: "15+",
+        {[{
+          number: "100+",
           label: "年經驗"
         }, {
           number: "500+",
