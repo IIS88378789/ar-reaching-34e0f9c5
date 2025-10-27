@@ -25,7 +25,7 @@ const Products = () => {
       title: "Motion Systems",
       logo: motionSystemsLogo,
       description: "Motion Systems 廣泛的專業運動平台和模擬器組件，專門針對期望運動系統不僅具有高品質和可靠性，還包括驚人的運動精度、卓越的動態性能和表現的客戶。運動平台非常適合構建全運動模擬器，用於研究、教育、設備測試或專業飛行和駕駛訓練。從2DOF、3DOF到6DOF的大量選擇，完美適應運動模擬領域中最尖端的項目和應用。",
-      image: motionSimulator,
+      image: motionSystemsLogo,
       bgColor: "from-accent/20 to-secondary/20",
     },
   ];
