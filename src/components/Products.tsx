@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useState } from "react";
 import socomorelogo from "@/assets/socomore-logo.png";
 import towflexxLogo from "@/assets/towflexx-logo.png";
@@ -18,7 +18,9 @@ const Products = () => {
   const [isMotionGalleryOpen, setIsMotionGalleryOpen] = useState(false);
   const [isSocomoreGalleryOpen, setIsSocomoreGalleryOpen] = useState(false);
   const [isTowflexxGalleryOpen, setIsTowflexxGalleryOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [motionImageIndex, setMotionImageIndex] = useState(0);
+  const [socomoreImageIndex, setSocomoreImageIndex] = useState(0);
+  const [towflexxImageIndex, setTowflexxImageIndex] = useState(0);
 
   const motionSystemsGallery = [
     { src: motionSimulatorDetail, alt: "Motion Systems Simulator QS-S25" },
@@ -97,12 +99,14 @@ const Products = () => {
               }}
               onClick={() => {
                 if (product.hasGallery) {
-                  setCurrentImageIndex(0);
                   if (product.title === "Motion Systems") {
+                    setMotionImageIndex(0);
                     setIsMotionGalleryOpen(true);
                   } else if (product.title === "SOCOMORE") {
+                    setSocomoreImageIndex(0);
                     setIsSocomoreGalleryOpen(true);
                   } else if (product.title === "TowFLEXX") {
+                    setTowflexxImageIndex(0);
                     setIsTowflexxGalleryOpen(true);
                   }
                 }
@@ -154,12 +158,15 @@ const Products = () => {
           <DialogTitle className="text-2xl font-bold text-center mb-4">
             Motion Systems 產品展示
           </DialogTitle>
+          <DialogDescription className="sr-only">
+            Motion Systems 產品圖片展示畫廊
+          </DialogDescription>
           <div className="flex gap-4">
             {/* Main Image */}
             <div className="flex-1 relative aspect-square bg-muted rounded-lg overflow-hidden">
               <img
-                src={motionSystemsGallery[currentImageIndex].src}
-                alt={motionSystemsGallery[currentImageIndex].alt}
+                src={motionSystemsGallery[motionImageIndex].src}
+                alt={motionSystemsGallery[motionImageIndex].alt}
                 className="w-full h-full object-contain"
               />
             </div>
@@ -169,9 +176,9 @@ const Products = () => {
               {motionSystemsGallery.map((image, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setCurrentImageIndex(idx)}
+                  onClick={() => setMotionImageIndex(idx)}
                   className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
-                    currentImageIndex === idx
+                    motionImageIndex === idx
                       ? "border-primary ring-2 ring-primary/50"
                       : "border-muted hover:border-accent"
                   }`}
@@ -194,12 +201,15 @@ const Products = () => {
           <DialogTitle className="text-2xl font-bold text-center mb-4">
             SOCOMORE 產品展示
           </DialogTitle>
+          <DialogDescription className="sr-only">
+            SOCOMORE 產品圖片展示畫廊
+          </DialogDescription>
           <div className="flex gap-4">
             {/* Main Image */}
             <div className="flex-1 relative aspect-square bg-muted rounded-lg overflow-hidden">
               <img
-                src={socomoreGallery[currentImageIndex].src}
-                alt={socomoreGallery[currentImageIndex].alt}
+                src={socomoreGallery[socomoreImageIndex].src}
+                alt={socomoreGallery[socomoreImageIndex].alt}
                 className="w-full h-full object-contain"
               />
             </div>
@@ -209,9 +219,9 @@ const Products = () => {
               {socomoreGallery.map((image, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setCurrentImageIndex(idx)}
+                  onClick={() => setSocomoreImageIndex(idx)}
                   className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
-                    currentImageIndex === idx
+                    socomoreImageIndex === idx
                       ? "border-primary ring-2 ring-primary/50"
                       : "border-muted hover:border-accent"
                   }`}
@@ -234,12 +244,15 @@ const Products = () => {
           <DialogTitle className="text-2xl font-bold text-center mb-4">
             TowFLEXX 產品展示
           </DialogTitle>
+          <DialogDescription className="sr-only">
+            TowFLEXX 產品圖片展示畫廊
+          </DialogDescription>
           <div className="flex gap-4">
             {/* Main Image */}
             <div className="flex-1 relative aspect-square bg-muted rounded-lg overflow-hidden">
               <img
-                src={towflexxGallery[currentImageIndex].src}
-                alt={towflexxGallery[currentImageIndex].alt}
+                src={towflexxGallery[towflexxImageIndex].src}
+                alt={towflexxGallery[towflexxImageIndex].alt}
                 className="w-full h-full object-contain"
               />
             </div>
@@ -249,9 +262,9 @@ const Products = () => {
               {towflexxGallery.map((image, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setCurrentImageIndex(idx)}
+                  onClick={() => setTowflexxImageIndex(idx)}
                   className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
-                    currentImageIndex === idx
+                    towflexxImageIndex === idx
                       ? "border-primary ring-2 ring-primary/50"
                       : "border-muted hover:border-accent"
                   }`}
