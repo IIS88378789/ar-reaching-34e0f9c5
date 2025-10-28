@@ -50,10 +50,7 @@ const Hero = () => {
         
         
         <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 animate-fade-in">
-          專業航空科技
-          <span className="block mt-2 text-primary">
-            解決方案
-          </span>
+          專業航空科技解決方案
         </h1>
         
         <p className="text-xl md:text-2xl text-primary/90 mb-10 max-w-3xl mx-auto leading-relaxed">
