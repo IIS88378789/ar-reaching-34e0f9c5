@@ -47,7 +47,7 @@ const Hero = () => {
           專業航空科技解決方案
         </h1>
         
-        <p className="text-xl md:text-2xl text-primary/90 mb-10 max-w-3xl mx-auto leading-relaxed">提供創新的飛行訓練系統、活動模擬平臺及航空設備專業維修</p>
+        <p className="text-xl md:text-2xl text-primary/90 mb-10 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 12px rgba(251, 146, 60, 0.6)' }}>提供創新的飛行訓練系統、活動模擬平臺及航空設備專業維修</p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="text-lg group bg-gradient-to-r from-accent to-secondary hover:shadow-glow-sm transition-all duration-300">
