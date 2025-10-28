@@ -13,14 +13,19 @@ import socomoreRailway from "@/assets/socomore-railway.jpg";
 import towflexxModels from "@/assets/towflexx-models.png";
 import towflexxBlueAngels from "@/assets/towflexx-blue-angels.jpg";
 import towflexxF16 from "@/assets/towflexx-f16.jpg";
+import testfuchsCustom from "@/assets/testfuchs-custom.png";
+import testfuchsModular from "@/assets/testfuchs-modular.png";
+import testfuchsCommercial from "@/assets/testfuchs-commercial.png";
 
 const Products = () => {
   const [isMotionGalleryOpen, setIsMotionGalleryOpen] = useState(false);
   const [isSocomoreGalleryOpen, setIsSocomoreGalleryOpen] = useState(false);
   const [isTowflexxGalleryOpen, setIsTowflexxGalleryOpen] = useState(false);
+  const [isTestfuchsGalleryOpen, setIsTestfuchsGalleryOpen] = useState(false);
   const [motionImageIndex, setMotionImageIndex] = useState(0);
   const [socomoreImageIndex, setSocomoreImageIndex] = useState(0);
   const [towflexxImageIndex, setTowflexxImageIndex] = useState(0);
+  const [testfuchsImageIndex, setTestfuchsImageIndex] = useState(0);
 
   const motionSystemsGallery = [
     { src: motionSimulatorDetail, alt: "Motion Systems Simulator QS-S25" },
@@ -35,6 +40,12 @@ const Products = () => {
     { src: towflexxModels, alt: "TowFLEXX 產品系列" },
     { src: towflexxBlueAngels, alt: "TowFLEXX Blue Angels 應用" },
     { src: towflexxF16, alt: "TowFLEXX F-16 應用" },
+  ];
+
+  const testfuchsGallery = [
+    { src: testfuchsCustom, alt: "Test Fuchs 系統客製化測試臺" },
+    { src: testfuchsModular, alt: "Test Fuchs 標準測試臺" },
+    { src: testfuchsCommercial, alt: "Test Fuchs 商用現成方案" },
   ];
 
   const products = [
@@ -68,6 +79,7 @@ const Products = () => {
       description: "專精於設計與生產飛機及直升機用測試系統、液壓與燃油測試設備及地面支援裝備。其產品廣泛應用於民航及軍用領域，客戶包括波音、空中巴士與各國空軍。公司以高精度研發與客製化解決方案著稱，通過多項國際航空品質認證，在歐洲、美洲與亞洲皆設有據點，為全球航空測試技術領導者之一。",
       image: null,
       bgColor: "from-primary/20 to-destructive/20",
+      hasGallery: true,
     },
   ];
 
@@ -108,6 +120,9 @@ const Products = () => {
                   } else if (product.title === "TowFLEXX") {
                     setTowflexxImageIndex(0);
                     setIsTowflexxGalleryOpen(true);
+                  } else if (product.title === "Test Fuchs") {
+                    setTestfuchsImageIndex(0);
+                    setIsTestfuchsGalleryOpen(true);
                   }
                 }
               }}
@@ -265,6 +280,49 @@ const Products = () => {
                   onClick={() => setTowflexxImageIndex(idx)}
                   className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
                     towflexxImageIndex === idx
+                      ? "border-primary ring-2 ring-primary/50"
+                      : "border-muted hover:border-accent"
+                  }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-contain bg-muted"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Test Fuchs Gallery Dialog */}
+      <Dialog open={isTestfuchsGalleryOpen} onOpenChange={setIsTestfuchsGalleryOpen}>
+        <DialogContent className="max-w-5xl">
+          <DialogTitle className="text-2xl font-bold text-center mb-4">
+            Test Fuchs 產品展示
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            Test Fuchs 產品圖片展示畫廊
+          </DialogDescription>
+          <div className="flex gap-4">
+            {/* Main Image */}
+            <div className="flex-1 relative aspect-square bg-muted rounded-lg overflow-hidden">
+              <img
+                src={testfuchsGallery[testfuchsImageIndex].src}
+                alt={testfuchsGallery[testfuchsImageIndex].alt}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            
+            {/* Thumbnail Gallery on Right */}
+            <div className="flex flex-col gap-3 w-32">
+              {testfuchsGallery.map((image, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setTestfuchsImageIndex(idx)}
+                  className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
+                    testfuchsImageIndex === idx
                       ? "border-primary ring-2 ring-primary/50"
                       : "border-muted hover:border-accent"
                   }`}
