@@ -1,11 +1,47 @@
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
-import heroImage from "@/assets/hero-aircraft.jpg";
+import { useState, useEffect } from "react";
+import heroEngineTest from "@/assets/hero-engine-test.jpg";
+import heroSundance from "@/assets/hero-sundance.jpg";
+import heroAlpha from "@/assets/hero-alpha-aircraft.jpg";
+import heroBlue from "@/assets/hero-blue-aircraft.jpg";
+import heroHangar from "@/assets/hero-hangar-aircraft.jpg";
 const Hero = () => {
+  const heroImages = [
+    { src: heroEngineTest, alt: "Aviation engine testing equipment" },
+    { src: heroSundance, alt: "Sundance aircraft on display" },
+    { src: heroAlpha, alt: "Alpha light sport aircraft in hangar" },
+    { src: heroBlue, alt: "Blue aircraft maintenance setup" },
+    { src: heroHangar, alt: "Aircraft in professional hangar facility" }
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
   return <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Image Slider with Overlay */}
       <div className="absolute inset-0">
-        <img src={heroImage} alt="Aircraft in hangar - Professional aviation technology solutions" className="w-full h-full object-cover" />
+        {heroImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <img 
+              src={image.src} 
+              alt={image.alt} 
+              className="w-full h-full object-cover" 
+            />
+          </div>
+        ))}
         <div className="absolute inset-0 bg-[image:var(--gradient-hero)]" />
         {/* Tech Grid Overlay */}
         <div className="absolute inset-0 bg-grid-pattern opacity-30" />
