@@ -4,6 +4,7 @@ import towflexxLogo from "@/assets/towflexx-logo.png";
 import motionPlatform from "@/assets/motion-platform-1.png";
 import motionSimulator from "@/assets/motion-simulator.png";
 import motionSystemsLogo from "@/assets/motion-systems-logo.png";
+import testfuchsLogo from "@/assets/testfuchs-logo.svg";
 
 const Products = () => {
   const products = [
@@ -28,6 +29,13 @@ const Products = () => {
       image: motionSystemsLogo,
       bgColor: "from-accent/20 to-secondary/20",
     },
+    {
+      title: "Test Fuchs",
+      logo: testfuchsLogo,
+      description: "專精於設計與生產飛機及直升機用測試系統、液壓與燃油測試設備及地面支援裝備。其產品廣泛應用於民航及軍用領域，客戶包括波音、空中巴士與各國空軍。公司以高精度研發與客製化解決方案著稱，通過多項國際航空品質認證，在歐洲、美洲與亞洲皆設有據點，為全球航空測試技術領導者之一。",
+      image: null,
+      bgColor: "from-primary/20 to-destructive/20",
+    },
   ];
 
   return (
@@ -46,7 +54,7 @@ const Products = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <Card
               key={index}
