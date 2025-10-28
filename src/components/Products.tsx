@@ -1,12 +1,24 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { useState } from "react";
 import socomorelogo from "@/assets/socomore-logo.png";
 import towflexxLogo from "@/assets/towflexx-logo.png";
 import motionPlatform from "@/assets/motion-platform-1.png";
 import motionSimulator from "@/assets/motion-simulator.png";
 import motionSystemsLogo from "@/assets/motion-systems-logo.png";
 import testfuchsLogo from "@/assets/testfuchs-logo.svg";
+import motionSimulatorDetail from "@/assets/motion-simulator-detail.png";
+import motionPlatformDetail from "@/assets/motion-platform-detail.png";
 
 const Products = () => {
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const motionSystemsGallery = [
+    { src: motionSimulatorDetail, alt: "Motion Systems Simulator QS-S25" },
+    { src: motionPlatformDetail, alt: "Motion Systems Platform PS-6TL-350" },
+  ];
+
   const products = [
     {
       title: "SOCOMORE",
@@ -28,6 +40,7 @@ const Products = () => {
       description: "Motion Systems 廣泛的專業運動平台和模擬器組件，專門針對期望運動系統不僅具有高品質和可靠性，還包括驚人的運動精度、卓越的動態性能和表現的客戶。運動平台非常適合構建全運動模擬器，用於研究、教育、設備測試或專業飛行和駕駛訓練。從2DOF、3DOF到6DOF的大量選擇，完美適應運動模擬領域中最尖端的項目和應用。",
       image: motionSystemsLogo,
       bgColor: "from-accent/20 to-secondary/20",
+      hasGallery: true,
     },
     {
       title: "Test Fuchs",
@@ -58,9 +71,17 @@ const Products = () => {
           {products.map((product, index) => (
             <Card
               key={index}
-              className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-accent/50 bg-card/50 backdrop-blur-sm"
+              className={`group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 hover:border-accent/50 bg-card/50 backdrop-blur-sm ${
+                product.hasGallery ? "cursor-pointer" : ""
+              }`}
               style={{
                 animationDelay: `${index * 150}ms`,
+              }}
+              onClick={() => {
+                if (product.hasGallery) {
+                  setCurrentImageIndex(0);
+                  setIsGalleryOpen(true);
+                }
               }}
             >
               {product.image ? (
@@ -102,6 +123,43 @@ const Products = () => {
           ))}
         </div>
       </div>
+
+      {/* Gallery Dialog */}
+      <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
+        <DialogContent className="max-w-4xl">
+          <DialogTitle className="text-2xl font-bold text-center mb-4">
+            Motion Systems 產品展示
+          </DialogTitle>
+          <div className="space-y-4">
+            <div className="relative aspect-square bg-muted rounded-lg overflow-hidden">
+              <img
+                src={motionSystemsGallery[currentImageIndex].src}
+                alt={motionSystemsGallery[currentImageIndex].alt}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {motionSystemsGallery.map((image, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentImageIndex(idx)}
+                  className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
+                    currentImageIndex === idx
+                      ? "border-primary ring-2 ring-primary/50"
+                      : "border-muted hover:border-accent"
+                  }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-contain bg-muted"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
