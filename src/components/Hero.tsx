@@ -30,7 +30,7 @@ const Hero = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, [heroImages.length]);
-  return <section className="relative h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image Slider with Overlay */}
       <div className="absolute inset-0">
         {heroImages.map((image, index) => <div key={index} className={`absolute inset-0 transition-opacity duration-[2000ms] ${index === currentImageIndex ? "opacity-100" : "opacity-0"}`}>
