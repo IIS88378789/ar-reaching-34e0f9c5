@@ -120,7 +120,7 @@ const About = () => {
                     <DialogTrigger asChild>
                       <img src={isoCertificate} alt="ISO 9001:2015 證書" title="點擊放大查看證書" className="w-full h-auto max-w-md object-contain animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-300" />
                     </DialogTrigger>
-                    <DialogContent className="max-w-4xl w-full p-2">
+                    <DialogContent className="max-w-3xl max-h-[90vh] w-full p-4 overflow-auto">
                       <img src={isoCertificate} alt="ISO 9001:2015 證書" className="w-full h-auto object-contain" />
                     </DialogContent>
                   </Dialog>
