@@ -23,13 +23,7 @@ const TadteNewsDialog = ({ open, onOpenChange }: TadteNewsDialogProps) => {
         </DialogHeader>
         
         <div className="space-y-6">
-          <div className="prose prose-lg max-w-none">
-            <p className="text-foreground leading-relaxed text-lg">
-              睽違6年，第一次參加臺北國防展，航空飛行推廣，推廣新建 ISO 9001維修工廠能量，設備維修，遙控飛機拖車引進，未來甚至向無人機等領域發展。
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="relative overflow-hidden rounded-lg group">
               <img 
                 src={tadteDetail1} 
