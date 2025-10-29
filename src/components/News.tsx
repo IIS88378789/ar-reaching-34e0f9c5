@@ -82,10 +82,10 @@ const News = () => {
   const secondaryNews = newsItems.slice(1, 3);
   const carouselNews = newsItems.slice(3);
 
-  const renderNewsCard = (item: typeof newsItems[0], index: number, isFeatured = false) => (
+  const renderNewsCard = (item: typeof newsItems[0], index: number, isFeatured = false, isSecondary = false) => (
     <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-card border border-border/50 group relative h-full">
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <div className={`relative overflow-hidden bg-muted ${isFeatured ? 'h-72 md:h-96' : 'h-32'}`}>
+      <div className={`relative overflow-hidden bg-muted ${isFeatured ? 'h-72 md:h-96' : isSecondary ? 'h-32' : 'h-40'}`}>
         <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
         <div className="absolute bottom-3 left-3 inline-block px-3 py-1 bg-background/90 backdrop-blur-sm text-foreground border border-border rounded text-xs font-semibold tracking-wide">
@@ -97,11 +97,11 @@ const News = () => {
           <Calendar size={12} className="text-accent" />
           <span className="font-medium">{item.date}</span>
         </div>
-        <h3 className={`${isFeatured ? 'text-xl md:text-2xl' : 'text-base'} font-bold mb-2 text-foreground leading-tight group-hover:text-accent transition-colors duration-300`}>
+        <h3 className={`${isFeatured ? 'text-xl md:text-2xl' : isSecondary ? 'text-base' : 'text-lg'} font-bold mb-2 text-foreground leading-tight group-hover:text-accent transition-colors duration-300`}>
           {item.title}
         </h3>
-        {isFeatured && (
-          <p className="text-muted-foreground mb-3 line-clamp-3 text-sm leading-relaxed">
+        {!isSecondary && (
+          <p className={`text-muted-foreground mb-3 ${isFeatured ? 'line-clamp-3 text-sm' : 'line-clamp-2 text-sm'} leading-relaxed`}>
             {item.excerpt}
           </p>
         )}
@@ -146,7 +146,7 @@ const News = () => {
             <div className="flex flex-col gap-6">
               {secondaryNews.map((item, idx) => (
                 <div key={idx + 1}>
-                  {renderNewsCard(item, idx + 1)}
+                  {renderNewsCard(item, idx + 1, false, true)}
                 </div>
               ))}
             </div>
