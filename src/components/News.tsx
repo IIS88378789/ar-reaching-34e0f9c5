@@ -26,7 +26,7 @@ const News = () => {
   const newsItems = [{
     date: "2025年9月18日",
     title: "2025年台北國際航太暨國防工業展（TADTE 2025）",
-    excerpt: "睽違6年，第一次參加臺北國防展，航空飛行推廣，推廣新建 ISO 9001維修工廠能量，設備維修，遙控飛機拖車引進，未來甚至向無人機等領域發展。",
+    excerpt: "",
     category: "展覽活動",
     image: newsTadte
   }, {
