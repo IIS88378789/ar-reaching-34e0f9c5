@@ -19,8 +19,18 @@ const About = () => {
     value: "100+",
     label: "成功案例"
   }];
-  return <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+  return <section id="about" className="py-20 bg-background relative overflow-hidden">
+      {/* Aircraft and maintenance themed background */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute top-10 left-10 text-8xl">✈️</div>
+        <div className="absolute top-20 right-20 text-7xl rotate-45">🔧</div>
+        <div className="absolute bottom-32 left-1/4 text-6xl -rotate-12">⚙️</div>
+        <div className="absolute top-1/3 right-1/4 text-9xl rotate-12">✈️</div>
+        <div className="absolute bottom-20 right-10 text-7xl">🛠️</div>
+        <div className="absolute top-1/2 left-10 text-6xl rotate-90">⚡</div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             關於我們
