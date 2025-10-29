@@ -5,12 +5,15 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Autoplay from "embla-carousel-autoplay";
 import { useRef, useState } from "react";
 import NewsDetailDialog from "./NewsDetailDialog";
+import TowflexxNewsDialog from "./TowflexxNewsDialog";
 import newsSimulator from "@/assets/news-simulator-training.jpg";
 import newsMotion from "@/assets/news-motion-platform.jpg";
 import newsExhibition from "@/assets/news-exhibition.jpg";
 import newsPartnership from "@/assets/news-partnership.jpg";
+import newsTowflexxDemo from "@/assets/news-towflexx-demo.jpg";
 const News = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isTowflexxDialogOpen, setIsTowflexxDialogOpen] = useState(false);
   
   const plugin = useRef(Autoplay({
     delay: 3000,
@@ -18,6 +21,12 @@ const News = () => {
     stopOnMouseEnter: true
   }));
   const newsItems = [{
+    date: "2025年5月21日",
+    title: "TOWFLEXX TF5 飛特立航空 DEMO",
+    excerpt: "飛特立航空採用 TOWFLEXX TF5 執行拖機工作，減少拖機作業人員負擔和增加機棚場現有區域飛機停放。",
+    category: "產品展示",
+    image: newsTowflexxDemo
+  }, {
     date: "2024年10月7日",
     title: "中華科技大學簽署產學合作,尹航科技有限公司航空人才培育研究案",
     excerpt: "本公司與中華科技大學正式簽署產學合作協議，共同推動航空人才培育研究計畫，結合產業實務與學術研究，培養專業航空技術人才。",
@@ -101,6 +110,8 @@ const News = () => {
                         className="p-0 h-auto text-accent hover:text-accent/80 font-semibold group/btn"
                         onClick={() => {
                           if (index === 0) {
+                            setIsTowflexxDialogOpen(true);
+                          } else if (index === 1) {
                             setIsDialogOpen(true);
                           }
                         }}
@@ -125,6 +136,7 @@ const News = () => {
       </div>
 
       <NewsDetailDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
+      <TowflexxNewsDialog open={isTowflexxDialogOpen} onOpenChange={setIsTowflexxDialogOpen} />
     </section>;
 };
 export default News;
