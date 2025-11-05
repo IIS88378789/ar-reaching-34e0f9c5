@@ -11,6 +11,9 @@ import serviceSimulator3 from "@/assets/service-simulator-3.jpg";
 import serviceSimulator4 from "@/assets/service-simulator-4.jpg";
 import serviceEngineTest1 from "@/assets/service-engine-test-1.jpg";
 import serviceEngineTest2 from "@/assets/service-engine-test-2.jpg";
+import serviceA320_1 from "@/assets/service-a320-1.jpg";
+import serviceA320_2 from "@/assets/service-a320-2.jpg";
+import serviceA320_3 from "@/assets/service-a320-3.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -42,7 +45,7 @@ const Services = () => {
       icon: Wrench,
       title: "A320 飛行模擬機維修",
       description: "各項硬體, 電腦軟體設定, 消耗器材更換等",
-      images: [serviceParts, serviceParts],
+      images: [serviceA320_1, serviceA320_2, serviceA320_3],
     },
     {
       icon: Cog,
