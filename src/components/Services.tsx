@@ -9,7 +9,7 @@ const Services = () => {
   const services = [
     {
       icon: Plane,
-      title: "航空器材銷售",
+      title: "航空器材裝備銷售",
       description: "代理國際知名航空設備品牌，包括 TowFLEX、Motion Systems 等專業產品，提供完整的產品線與技術支援。",
       images: [serviceAircraft1, serviceAircraft2],
     },
