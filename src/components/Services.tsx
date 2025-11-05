@@ -32,15 +32,15 @@ const Services = () => {
     },
     {
       icon: GraduationCap,
-      title: "航空教學設備",
-      description: "提供專業的飛行訓練課程與模擬器操作培訓，協助航空院校與訓練機構提升教學品質。",
-      images: [serviceParts, serviceParts],
+      title: "多軸飛行器",
+      description: "完善的售後服務體系，提供設備維護、技術諮詢與零件更換服務，確保系統穩定運作。",
+      images: [serviceSimulator1, serviceSimulator2, serviceSimulator3, serviceSimulator4],
     },
     {
       icon: Wrench,
-      title: "多軸飛行模擬器設計, 維修",
-      description: "完善的售後服務體系，提供設備維護、技術諮詢與零件更換服務，確保系統穩定運作。",
-      images: [serviceSimulator1, serviceSimulator2, serviceSimulator3, serviceSimulator4],
+      title: "A320 飛行模擬機維修",
+      description: "各項硬體, 電腦軟體設定, 消耗器材更換等",
+      images: [serviceParts, serviceParts],
     },
   ];
 
