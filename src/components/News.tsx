@@ -154,7 +154,7 @@ const News = () => {
         </div>
 
         {/* Carousel for remaining news */}
-        {carouselNews.length > 0 && (
+        {/* {carouselNews.length > 0 && (
           <Carousel opts={{
             align: "start",
             loop: true
@@ -171,7 +171,7 @@ const News = () => {
             <CarouselPrevious className="left-2 bg-background/90 backdrop-blur-sm border-border hover:bg-accent hover:text-accent-foreground" />
             <CarouselNext className="right-2 bg-background/90 backdrop-blur-sm border-border hover:bg-accent hover:text-accent-foreground" />
           </Carousel>
-        )}
+        )} */}
       </div>
 
       <NewsDetailDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
