@@ -5,7 +5,10 @@ import serviceTeaching1 from "@/assets/service-teaching-1.jpg";
 import serviceTeaching2 from "@/assets/service-teaching-2.jpg";
 import serviceMaintenance from "@/assets/service-maintenance.png";
 import serviceParts from "@/assets/service-parts.png";
-import serviceSimulator from "@/assets/service-simulator.png";
+import serviceSimulator1 from "@/assets/service-simulator-1.jpg";
+import serviceSimulator2 from "@/assets/service-simulator-2.jpg";
+import serviceSimulator3 from "@/assets/service-simulator-3.jpg";
+import serviceSimulator4 from "@/assets/service-simulator-4.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -37,7 +40,7 @@ const Services = () => {
       icon: Wrench,
       title: "多軸飛行模擬器設計, 維修",
       description: "完善的售後服務體系，提供設備維護、技術諮詢與零件更換服務，確保系統穩定運作。",
-      images: [serviceSimulator, serviceSimulator],
+      images: [serviceSimulator1, serviceSimulator2, serviceSimulator3, serviceSimulator4],
     },
   ];
 
