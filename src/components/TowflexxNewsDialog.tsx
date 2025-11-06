@@ -1,7 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Calendar } from "lucide-react";
 import towflexxDetail1 from "@/assets/towflexx-demo-detail-1.jpg";
-import towflexxDetail2 from "@/assets/towflexx-demo-detail-2.png";
+import towflexxDetail2 from "@/assets/towflexx-demo-detail-2.jpg";
 import towflexxDetail3 from "@/assets/towflexx-demo-detail-3.jpg";
 
 interface TowflexxNewsDialogProps {
