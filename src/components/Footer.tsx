@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
+import lineQRCode from "@/assets/line-qrcode.png";
 const Footer = () => {
   return <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
@@ -48,7 +49,7 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className="font-bold text-lg mb-4">聯絡資訊</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 mb-4">
               <li className="flex items-start gap-2 text-sm">
                 <MapPin size={16} className="mt-1 flex-shrink-0" />
                 <span className="opacity-90">桃園市桃園區大興西路二段139巷137號3F</span>
@@ -62,6 +63,10 @@ const Footer = () => {
                 <span className="opacity-90">sales@aerobatic-tec.com.tw</span>
               </li>
             </ul>
+            <div className="flex flex-col items-start gap-2">
+              <p className="text-sm font-medium">LINE 官方帳號</p>
+              <img src={lineQRCode} alt="LINE QR Code" className="w-32 h-32 bg-white p-2 rounded" />
+            </div>
           </div>
         </div>
 
