@@ -1,4 +1,4 @@
-import { Plane, Settings, GraduationCap, Wrench, Cog } from "lucide-react";
+import { Plane, Settings, GraduationCap, Wrench, Cog, Layers } from "lucide-react";
 import serviceAircraft1 from "@/assets/service-aircraft-1.jpg";
 import serviceAircraft2 from "@/assets/service-aircraft-2.jpg";
 import serviceTeaching1 from "@/assets/service-teaching-1.jpg";
@@ -14,6 +14,9 @@ import serviceEngineTest2 from "@/assets/service-engine-test-2.jpg";
 import serviceA320_1 from "@/assets/service-a320-1.jpg";
 import serviceA320_2 from "@/assets/service-a320-2.jpg";
 import serviceA320_3 from "@/assets/service-a320-3.jpg";
+import serviceComposite1 from "@/assets/service-composite-1.jpg";
+import serviceComposite2 from "@/assets/service-composite-2.jpg";
+import serviceComposite3 from "@/assets/service-composite-3.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -52,6 +55,12 @@ const Services = () => {
       title: "帷幕測試發動機組裝維修",
       description: "風雨測試發動機試車臺, 提供700 PA, 1000 PA ,13級風速測試, 達到TAF 標準測試",
       images: [serviceEngineTest1, serviceEngineTest2],
+    },
+    {
+      icon: Layers,
+      title: "複合材料零組件檢查，維修，製造",
+      description: "在航空航太工業中至關重要。這些流程需要遵循嚴格的標準和採用專門技術，針對性修補方法和多樣化的製造工藝。",
+      images: [serviceComposite1, serviceComposite2, serviceComposite3],
     },
   ];
 
