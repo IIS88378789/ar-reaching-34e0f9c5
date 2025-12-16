@@ -1,40 +1,36 @@
 import { useState } from "react";
 import { GraduationCap, Heart, Shield, Target } from "lucide-react";
-
-interface Policy {
-  icon: any;
-  title: string;
-  content: string;
-  iconColor: string;
-}
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const QualityPolicy = () => {
-  const [policies] = useState<Policy[]>([
+  const { t } = useLanguage();
+
+  const policies = [
     {
       icon: GraduationCap,
-      title: "教育訓練",
-      content: "持續投資員工專業培訓，建立完善的風險管理機制，確保團隊具備最新技術知識與安全意識。",
+      title: t("quality.training.title"),
+      content: t("quality.training.content"),
       iconColor: "text-primary",
     },
     {
       icon: Heart,
-      title: "服務熱忱",
-      content: "以客戶需求為核心，提供即時且完善的技術支援，確保每個環節都達到精準可靠的品質標準。",
+      title: t("quality.service.title"),
+      content: t("quality.service.content"),
       iconColor: "text-accent",
     },
     {
       icon: Shield,
-      title: "品質保固",
-      content: "採用國際認證標準，提供完整的產品保固服務，讓客戶在使用過程中安心無憂。",
+      title: t("quality.guarantee.title"),
+      content: t("quality.guarantee.content"),
       iconColor: "text-primary",
     },
     {
       icon: Target,
-      title: "永續經營",
-      content: "持續優化產品與服務，建立長期合作夥伴關係，以客戶滿意度為企業永續發展的核心目標。",
+      title: t("quality.sustainable.title"),
+      content: t("quality.sustainable.content"),
       iconColor: "text-accent",
     },
-  ]);
+  ];
 
   return (
     <section id="quality-policy" className="py-20 bg-background relative overflow-hidden">
@@ -44,10 +40,10 @@ const QualityPolicy = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            品質政策
+            {t("quality.title")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            堅持卓越品質，提供最佳服務
+            {t("quality.subtitle")}
           </p>
         </div>
 

@@ -2,27 +2,22 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Users, Globe, TrendingUp } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 import isoCertificate from "@/assets/iso-certificate.png";
+
 const About = () => {
+  const { t } = useLanguage();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const stats = [{
-    icon: Award,
-    value: "15+",
-    label: "年專業經驗"
-  }, {
-    icon: Users,
-    value: "50+",
-    label: "專業團隊"
-  }, {
-    icon: Globe,
-    value: "10+",
-    label: "合作夥伴"
-  }, {
-    icon: TrendingUp,
-    value: "100+",
-    label: "成功案例"
-  }];
-  return <section id="about" className="py-20 bg-background relative overflow-hidden">
+
+  const stats = [
+    { icon: Award, value: "15+", label: t("about.yearsExperience") },
+    { icon: Users, value: "50+", label: t("about.professionalTeam") },
+    { icon: Globe, value: "10+", label: t("about.partners") },
+    { icon: TrendingUp, value: "100+", label: t("about.successCases") },
+  ];
+
+  return (
+    <section id="about" className="py-20 bg-background relative overflow-hidden">
       {/* Orange gradient glow background */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-accent/12 to-accent/8">
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-accent/15 rounded-full blur-[120px]" />
@@ -82,10 +77,10 @@ const About = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            關於我們
+            {t("about.title")}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            專注於航空科技領域的專業服務公司
+            {t("about.subtitle")}
           </p>
         </div>
 
@@ -94,34 +89,34 @@ const About = () => {
             <CardContent className="p-0">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="p-8 md:p-12">
-                  <h3 className="text-3xl font-bold mb-6">公司簡介</h3>
+                  <h3 className="text-3xl font-bold mb-6">{t("about.companyIntro")}</h3>
                   <div className="space-y-4 text-lg">
-                    <p>尹航科技有限公司於2017年成立，以從事民航，軍用和教學航空器提供航空器材相關供應和服務。</p>
-                    <p>尹航科技有限公司之核心競爭力包含豐富的航空產業知識及銷售，資訊迅速流通成為我們最大競爭優勢，對市場需求的深入度，與客戶緊密的結合，是我們的目標，也是我們賴以生存的最佳利器。</p>
-                    <p>二十年戰鬥機，客機飛機組裝經驗。民航局合格飛行，維修証照。</p>
+                    <p>{t("about.intro1")}</p>
+                    <p>{t("about.intro2")}</p>
+                    <p>{t("about.intro3")}</p>
                     <div className="mt-6 pt-6 border-t border-primary-foreground/20">
-                      <h4 className="text-xl font-semibold mb-3">專業服務</h4>
+                      <h4 className="text-xl font-semibold mb-3">{t("about.professionalServices")}</h4>
                       <ul className="space-y-2">
                         <li className="flex items-start">
                           <span className="mr-2">✈️</span>
-                          <span>飛行模擬機訓練，資深教官指導教學</span>
+                          <span>{t("about.service1")}</span>
                         </li>
                         <li className="flex items-start">
                           <span className="mr-2">🔧</span>
-                          <span>飛機修護乙，丙級技術士證照輔導</span>
+                          <span>{t("about.service2")}</span>
                         </li>
                       </ul>
                     </div>
-                    <p className="text-sm mt-4 opacity-90">2025年8月18日 ISO 9001:2015 核發</p>
+                    <p className="text-sm mt-4 opacity-90">{t("about.isoDate")}</p>
                   </div>
                 </div>
                 <div className="bg-white p-6 md:p-8 h-full flex items-center justify-center">
                   <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                     <DialogTrigger asChild>
-                      <img src={isoCertificate} alt="ISO 9001:2015 證書" title="點擊放大查看證書" className="w-full h-auto max-w-md object-contain animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-300" />
+                      <img src={isoCertificate} alt="ISO 9001:2015 Certificate" title="Click to enlarge" className="w-full h-auto max-w-md object-contain animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-300" />
                     </DialogTrigger>
                     <DialogContent className="max-w-3xl max-h-[90vh] w-full p-4 overflow-auto">
-                      <img src={isoCertificate} alt="ISO 9001:2015 證書" className="w-full h-auto object-contain" />
+                      <img src={isoCertificate} alt="ISO 9001:2015 Certificate" className="w-full h-auto object-contain" />
                     </DialogContent>
                   </Dialog>
                 </div>
@@ -145,6 +140,8 @@ const About = () => {
           })}
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default About;
