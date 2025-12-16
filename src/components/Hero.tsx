@@ -65,7 +65,11 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="text-lg group bg-gradient-to-r from-accent to-secondary hover:shadow-glow-sm transition-all duration-300">
+          <Button 
+            size="lg" 
+            className="text-lg group bg-gradient-to-r from-accent to-secondary hover:shadow-glow-sm transition-all duration-300"
+            onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             {t("hero.exploreProducts")}
             <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
