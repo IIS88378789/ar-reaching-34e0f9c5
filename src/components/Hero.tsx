@@ -43,7 +43,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
       {/* Background Image Slider with Overlay */}
       <div className="absolute inset-0">
         {heroImages.map((image, index) => (
@@ -56,11 +56,11 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 animate-fade-in">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 animate-fade-in">
           {t("hero.title")}
         </h1>
         
-        <p className="text-xl md:text-2xl text-primary/90 mb-10 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 12px rgba(251, 146, 60, 0.6)' }}>
+        <p className="text-lg md:text-xl text-primary/90 mb-10 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 12px rgba(251, 146, 60, 0.6)' }}>
           {t("hero.subtitle")}
         </p>
         
@@ -75,18 +75,18 @@ const Hero = () => {
         </div>
 
         {/* Tech Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
           {stats.map((stat, i) => (
             <div key={i} className="glass-effect rounded-lg p-4 animate-fade-in" style={{ animationDelay: `${i * 0.2}s` }}>
-              <div className="text-3xl font-bold text-primary mb-1">{stat.number}</div>
-              <div className="text-sm text-primary/70">{stat.label}</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stat.number}</div>
+              <div className="text-xs md:text-sm text-primary/70">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <div className="w-6 h-10 border-2 border-primary/60 rounded-full flex items-start justify-center p-2">
           <div className="w-1 h-3 bg-primary rounded-full" />
         </div>
