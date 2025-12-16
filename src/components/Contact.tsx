@@ -1,16 +1,19 @@
 import { MapPin } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   const locations = [
     {
-      title: "公司地址",
-      address: "桃園市桃園區大興西路二段139巷137號3F",
+      title: t("contact.companyAddress"),
+      address: t("contact.address1"),
       mapUrl: "https://www.google.com/maps?q=桃園市桃園區大興西路二段139巷137號3F&output=embed"
     },
     {
-      title: "ISO 9001 維修廠地址",
-      address: "桃園市大園區五青路312巷51-7號",
+      title: t("contact.isoAddress"),
+      address: t("contact.address2"),
       mapUrl: "https://www.google.com/maps?q=桃園市大園區五青路312巷51-7號&output=embed"
     }
   ];
@@ -19,8 +22,8 @@ const Contact = () => {
     <section id="contact" className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">聯絡地址</h2>
-          <p className="text-muted-foreground">歡迎蒞臨參觀</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("contact.title")}</h2>
+          <p className="text-muted-foreground">{t("contact.subtitle")}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroSky1 from "@/assets/hero-sky-1.jpg";
 import heroSky2 from "@/assets/hero-sky-2.jpg";
 import heroSky3 from "@/assets/hero-sky-3.jpg";
 import heroSky4 from "@/assets/hero-sky-4.jpg";
 import heroSky5 from "@/assets/hero-sky-5.jpg";
+
 const Hero = () => {
+  const { t } = useLanguage();
   const heroImages = [{
     src: heroSky1,
     alt: "Commercial aircraft soaring through blue sky with clouds"
@@ -24,61 +27,61 @@ const Hero = () => {
     alt: "Twin-engine aircraft soaring through majestic dusk sky"
   }];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex(prevIndex => (prevIndex + 1) % heroImages.length);
     }, 3000);
     return () => clearInterval(interval);
   }, [heroImages.length]);
-  return <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+
+  const stats = [
+    { number: "15+", label: t("hero.yearsExperience") },
+    { number: "100+", label: t("hero.projectsCompleted") },
+    { number: "98%", label: t("hero.customerSatisfaction") },
+    { number: "10+", label: t("hero.partners") },
+  ];
+
+  return (
+    <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image Slider with Overlay */}
       <div className="absolute inset-0">
-        {heroImages.map((image, index) => <div key={index} className={`absolute inset-0 transition-opacity duration-[2000ms] ${index === currentImageIndex ? "opacity-100" : "opacity-0"}`}>
+        {heroImages.map((image, index) => (
+          <div key={index} className={`absolute inset-0 transition-opacity duration-[2000ms] ${index === currentImageIndex ? "opacity-100" : "opacity-0"}`}>
             <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80" />
-          </div>)}
+          </div>
+        ))}
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        
-        
         <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 animate-fade-in">
-          專業航空科技解決方案
+          {t("hero.title")}
         </h1>
         
-        <p className="text-xl md:text-2xl text-primary/90 mb-10 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 12px rgba(251, 146, 60, 0.6)' }}>提供創新的飛行訓練系統、活動模擬平臺及航空設備專業維修</p>
+        <p className="text-xl md:text-2xl text-primary/90 mb-10 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 12px rgba(251, 146, 60, 0.6)' }}>
+          {t("hero.subtitle")}
+        </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="text-lg group bg-gradient-to-r from-accent to-secondary hover:shadow-glow-sm transition-all duration-300">
-            探索產品
+            {t("hero.exploreProducts")}
             <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button size="lg" variant="outline" className="text-lg glass-effect text-primary border-primary/50 hover:border-primary transition-all duration-300">
-            聯絡我們
+            {t("hero.contactUs")}
           </Button>
         </div>
 
         {/* Tech Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-          {[{
-          number: "15+",
-          label: "年經驗"
-        }, {
-          number: "100+",
-          label: "專案實績"
-        }, {
-          number: "98%",
-          label: "客戶滿意度"
-        }, {
-          number: "10+",
-          label: "合作夥伴"
-        }].map((stat, i) => <div key={i} className="glass-effect rounded-lg p-4 animate-fade-in" style={{
-          animationDelay: `${i * 0.2}s`
-        }}>
+          {stats.map((stat, i) => (
+            <div key={i} className="glass-effect rounded-lg p-4 animate-fade-in" style={{ animationDelay: `${i * 0.2}s` }}>
               <div className="text-3xl font-bold text-primary mb-1">{stat.number}</div>
               <div className="text-sm text-primary/70">{stat.label}</div>
-            </div>)}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -88,6 +91,8 @@ const Hero = () => {
           <div className="w-1 h-3 bg-primary rounded-full" />
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;

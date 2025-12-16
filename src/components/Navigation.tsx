@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageToggle from "./LanguageToggle";
 import logo from "@/assets/logo.png";
 import iso9001Logo from "@/assets/iso-9001-logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +21,10 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "產品資訊", href: "#products" },
-    { name: "最新消息", href: "#news" },
-    { name: "我們的服務", href: "#services" },
-    { name: "關於我們", href: "#about" },
+    { name: t("nav.products"), href: "#products" },
+    { name: t("nav.news"), href: "#news" },
+    { name: t("nav.services"), href: "#services" },
+    { name: t("nav.about"), href: "#about" },
   ];
 
   return (
@@ -34,8 +37,8 @@ const Navigation = () => {
           <div className="flex items-center space-x-3">
             <img src={logo} alt="Aerobatic Logo" className="h-12 w-auto" />
             <div>
-              <div className="font-bold text-lg leading-tight">尹航科技有限公司</div>
-              <div className="text-xs opacity-90">Aerobatic Technologies Ltd.</div>
+              <div className="font-bold text-lg leading-tight">{t("nav.companyName")}</div>
+              <div className="text-xs opacity-90">{t("nav.companyNameEn")}</div>
             </div>
             <img src={iso9001Logo} alt="ISO 9001 Certification" className="h-12 w-auto ml-2" title="ISO 9001:2015 認證" />
           </div>
@@ -53,12 +56,13 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
+            <LanguageToggle variant={scrolled ? "scrolled" : "default"} />
             <Button 
               variant="secondary" 
               className="ml-4"
               onClick={() => window.location.href = 'mailto:sales@aerobatic-tec.com.tw'}
             >
-              聯絡我們
+              {t("nav.contact")}
             </Button>
           </div>
 
@@ -86,13 +90,14 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
-            <div className="px-4 pt-2">
+            <div className="px-4 pt-2 flex items-center gap-2">
+              <LanguageToggle variant={scrolled ? "scrolled" : "default"} />
               <Button 
                 variant="secondary" 
-                className="w-full"
+                className="flex-1"
                 onClick={() => window.location.href = 'mailto:sales@aerobatic-tec.com.tw'}
               >
-                聯絡我們
+                {t("nav.contact")}
               </Button>
             </div>
           </div>

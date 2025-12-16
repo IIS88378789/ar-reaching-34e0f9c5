@@ -1,4 +1,5 @@
 import { Plane, Settings, GraduationCap, Wrench, Cog, Layers } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import serviceAircraft1 from "@/assets/service-aircraft-1.jpg";
 import serviceAircraft2 from "@/assets/service-aircraft-2.jpg";
 import serviceTeaching1 from "@/assets/service-teaching-1.jpg";
@@ -25,41 +26,43 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 
 const Services = () => {
+  const { t } = useLanguage();
+
   const services = [
     {
       icon: Plane,
-      title: "航空器材裝備銷售",
-      description: "代理國際知名航空設備品牌，包括 TowFLEX、Motion Systems 等專業產品，提供完整的產品線與技術支援。",
+      title: t("services.1.title"),
+      description: t("services.1.desc"),
       images: [serviceAircraft1, serviceAircraft2],
     },
     {
       icon: Settings,
-      title: "航空教學設備",
-      description: "根據客戶需求設計與開發專屬的飛行訓練系統，從規劃、設計到安裝，提供一站式整合服務。",
+      title: t("services.2.title"),
+      description: t("services.2.desc"),
       images: [serviceTeaching1, serviceTeaching2],
     },
     {
       icon: GraduationCap,
-      title: "多軸飛行器",
-      description: "完善的售後服務體系，提供設備維護、技術諮詢與零件更換服務，確保系統穩定運作。",
+      title: t("services.3.title"),
+      description: t("services.3.desc"),
       images: [serviceSimulator1, serviceSimulator2, serviceSimulator3, serviceSimulator4],
     },
     {
       icon: Wrench,
-      title: "A320 飛行模擬機維修",
-      description: "各項硬體, 電腦軟體設定, 消耗器材更換等",
+      title: t("services.4.title"),
+      description: t("services.4.desc"),
       images: [serviceA320_1, serviceA320_2, serviceA320_3],
     },
     {
       icon: Cog,
-      title: "帷幕測試發動機組裝維修",
-      description: "風雨測試發動機試車臺, 提供700 PA, 1000 PA ,13級風速測試, 達到TAF 標準測試",
+      title: t("services.5.title"),
+      description: t("services.5.desc"),
       images: [serviceEngineTest1, serviceEngineTest2],
     },
     {
       icon: Layers,
-      title: "複合材料零組件檢查，維修，製造",
-      description: "在航空航太工業中至關重要。這些流程需要遵循嚴格的標準和採用專門技術，針對性修補方法和多樣化的製造工藝。",
+      title: t("services.6.title"),
+      description: t("services.6.desc"),
       images: [serviceComposite1, serviceComposite2, serviceComposite3],
     },
   ];
@@ -78,12 +81,12 @@ const Services = () => {
           </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
             <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-              我們的服務
+              {t("services.title")}
             </span>
           </h2>
           <div className="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-accent to-transparent mb-6" />
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            提供全方位的航空科技服務與解決方案
+            {t("services.subtitle")}
           </p>
         </div>
 
