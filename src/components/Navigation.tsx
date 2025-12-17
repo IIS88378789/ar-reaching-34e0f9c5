@@ -60,7 +60,7 @@ const Navigation = () => {
             <Button 
               variant="secondary" 
               className="ml-4"
-              onClick={() => window.location.href = 'mailto:sales@aerobatic-tec.com.tw'}
+              onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSe2YR642s-VKWJOpoZiqIvEQ30MAcs0_GAFDhmPHcrAhLhp-w/viewform?usp=dialog', '_blank')}
             >
               {t("nav.contact")}
             </Button>
@@ -95,7 +95,7 @@ const Navigation = () => {
               <Button 
                 variant="secondary" 
                 className="flex-1"
-                onClick={() => window.location.href = 'mailto:sales@aerobatic-tec.com.tw'}
+                onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSe2YR642s-VKWJOpoZiqIvEQ30MAcs0_GAFDhmPHcrAhLhp-w/viewform?usp=dialog', '_blank')}
               >
                 {t("nav.contact")}
               </Button>
