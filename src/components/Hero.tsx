@@ -68,7 +68,7 @@ const Hero = () => {
           <Button 
             size="lg" 
             className="text-lg group bg-gradient-to-r from-accent to-secondary hover:shadow-glow-sm transition-all duration-300"
-            onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSe2YR642s-VKWJOpoZiqIvEQ30MAcs0_GAFDhmPHcrAhLhp-w/viewform?usp=dialog', '_blank')}
           >
             {t("hero.exploreProducts")}
             <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
