@@ -73,7 +73,12 @@ const Hero = () => {
             {t("hero.exploreProducts")}
             <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button size="lg" variant="outline" className="text-lg glass-effect text-primary border-primary/50 hover:border-primary transition-all duration-300">
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="text-lg glass-effect text-primary border-primary/50 hover:border-primary transition-all duration-300"
+            onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSe2YR642s-VKWJOpoZiqIvEQ30MAcs0_GAFDhmPHcrAhLhp-w/viewform?usp=dialog', '_blank')}
+          >
             {t("hero.contactUs")}
           </Button>
         </div>
