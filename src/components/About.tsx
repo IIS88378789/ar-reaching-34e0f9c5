@@ -85,11 +85,11 @@ const About = () => {
         </div>
 
         <div className="max-w-6xl mx-auto mb-16">
-          <Card className="bg-gradient-to-br from-primary to-accent text-primary-foreground overflow-hidden">
+        <Card className="bg-gradient-to-br from-primary to-accent text-primary-foreground overflow-hidden">
             <CardContent className="p-0">
-              <div className="grid md:grid-cols-3 gap-0">
-                {/* Main Content - 2 columns */}
-                <div className="md:col-span-2 p-8 md:p-12 space-y-8">
+              <div className="flex flex-col lg:flex-row">
+                {/* Main Content */}
+                <div className="flex-1 p-8 md:p-12 space-y-8">
                   {/* Section 1 */}
                   <div>
                     <h3 className="text-2xl font-bold mb-3">{t("about.section1.title")}</h3>
@@ -179,15 +179,15 @@ const About = () => {
                   <p className="text-sm mt-4 opacity-90 pt-4 border-t border-primary-foreground/20">{t("about.isoDate")}</p>
                 </div>
 
-                {/* ISO Certificate - 1 column */}
-                <div className="bg-white p-6 md:p-8 flex items-center justify-center">
+                {/* ISO Certificate */}
+                <div className="bg-white p-6 lg:p-8 flex items-start justify-center lg:w-64 xl:w-72 shrink-0 lg:sticky lg:top-0 lg:self-start">
                   <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                     <DialogTrigger asChild>
                       <img 
                         src={isoCertificate} 
                         alt="ISO 9001:2015 Certificate" 
                         title="Click to enlarge" 
-                        className="w-full h-auto max-w-sm object-contain animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-300" 
+                        className="w-full h-auto max-w-[200px] lg:max-w-full object-contain animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-300" 
                       />
                     </DialogTrigger>
                     <DialogContent className="max-w-3xl max-h-[90vh] w-full p-4 overflow-auto">
