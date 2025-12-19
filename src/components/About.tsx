@@ -10,7 +10,7 @@ const About = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const stats = [
-    { icon: Award, value: "15+", label: t("about.yearsExperience") },
+    { icon: Award, value: "20+", label: t("about.yearsExperience") },
     { icon: Users, value: "50+", label: t("about.professionalTeam") },
     { icon: Globe, value: "10+", label: t("about.partners") },
     { icon: TrendingUp, value: "100+", label: t("about.successCases") },
@@ -87,33 +87,108 @@ const About = () => {
         <div className="max-w-6xl mx-auto mb-16">
           <Card className="bg-gradient-to-br from-primary to-accent text-primary-foreground overflow-hidden">
             <CardContent className="p-0">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="p-8 md:p-12">
-                  <h3 className="text-3xl font-bold mb-6">{t("about.companyIntro")}</h3>
-                  <div className="space-y-4 text-lg">
-                    <p>{t("about.intro1")}</p>
-                    <p>{t("about.intro2")}</p>
-                    <p>{t("about.intro3")}</p>
-                    <div className="mt-6 pt-6 border-t border-primary-foreground/20">
-                      <h4 className="text-xl font-semibold mb-3">{t("about.professionalServices")}</h4>
-                      <ul className="space-y-2">
-                        <li className="flex items-start">
-                          <span className="mr-2">✈️</span>
-                          <span>{t("about.service1")}</span>
-                        </li>
-                        <li className="flex items-start">
-                          <span className="mr-2">🔧</span>
-                          <span>{t("about.service2")}</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <p className="text-sm mt-4 opacity-90">{t("about.isoDate")}</p>
+              <div className="grid md:grid-cols-3 gap-0">
+                {/* Main Content - 2 columns */}
+                <div className="md:col-span-2 p-8 md:p-12 space-y-8">
+                  {/* Section 1 */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3">{t("about.section1.title")}</h3>
+                    <p className="text-lg leading-relaxed opacity-95">{t("about.section1.content")}</p>
                   </div>
+
+                  {/* Section 2 */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3">{t("about.section2.title")}</h3>
+                    <p className="mb-2 opacity-95">{t("about.section2.intro")}</p>
+                    <ul className="space-y-1 pl-4">
+                      <li className="flex items-start">
+                        <span className="mr-2">一、</span>
+                        <span>{t("about.section2.item1")}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">二、</span>
+                        <span>{t("about.section2.item2")}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">三、</span>
+                        <span>{t("about.section2.item3")}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">四、</span>
+                        <span>{t("about.section2.item4")}</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Section 3 */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3">{t("about.section3.title")}</h3>
+                    <p className="mb-2 opacity-95">{t("about.section3.intro")}</p>
+                    <ul className="space-y-1 pl-4">
+                      <li className="flex items-start">
+                        <span className="mr-2">一、</span>
+                        <span>{t("about.section3.item1")}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">二、</span>
+                        <span>{t("about.section3.item2")}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">三、</span>
+                        <span>{t("about.section3.item3")}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">四、</span>
+                        <span>{t("about.section3.item4")}</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Section 4 */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3">{t("about.section4.title")}</h3>
+                    <p className="text-lg leading-relaxed opacity-95">{t("about.section4.content")}</p>
+                  </div>
+
+                  {/* Section 5 */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3">{t("about.section5.title")}</h3>
+                    <p className="mb-2 opacity-95">{t("about.section5.intro")}</p>
+                    <ul className="space-y-1 pl-4">
+                      <li className="flex items-start">
+                        <span className="mr-2">一、</span>
+                        <span>{t("about.section5.item1")}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">二、</span>
+                        <span>{t("about.section5.item2")}</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="mr-2">三、</span>
+                        <span>{t("about.section5.item3")}</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Section 6 */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3">{t("about.section6.title")}</h3>
+                    <p className="text-lg leading-relaxed opacity-95">{t("about.section6.content")}</p>
+                  </div>
+
+                  <p className="text-sm mt-4 opacity-90 pt-4 border-t border-primary-foreground/20">{t("about.isoDate")}</p>
                 </div>
-                <div className="bg-white p-6 md:p-8 h-full flex items-center justify-center">
+
+                {/* ISO Certificate - 1 column */}
+                <div className="bg-white p-6 md:p-8 flex items-center justify-center">
                   <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                     <DialogTrigger asChild>
-                      <img src={isoCertificate} alt="ISO 9001:2015 Certificate" title="Click to enlarge" className="w-full h-auto max-w-md object-contain animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-300" />
+                      <img 
+                        src={isoCertificate} 
+                        alt="ISO 9001:2015 Certificate" 
+                        title="Click to enlarge" 
+                        className="w-full h-auto max-w-sm object-contain animate-fade-in cursor-pointer hover:scale-105 transition-transform duration-300" 
+                      />
                     </DialogTrigger>
                     <DialogContent className="max-w-3xl max-h-[90vh] w-full p-4 overflow-auto">
                       <img src={isoCertificate} alt="ISO 9001:2015 Certificate" className="w-full h-auto object-contain" />
