@@ -160,8 +160,8 @@ const translations = {
     "services.4.desc": "Hardware components, computer software configuration, consumable parts replacement, etc.",
     "services.5.title": "Environmental Engine Test Cell Assembly & Maintenance",
     "services.5.desc": "Rain and wind test engine test stand, providing 700 PA, 1000 PA, 13-level wind speed testing, meeting TAF standard testing requirements.",
-    "services.6.title": "Composite Component Inspection, Repair & Manufacturing",
-    "services.6.desc": "Critical in the aerospace industry. These processes require strict standards and specialized techniques, targeted repair methods and diverse manufacturing processes.",
+    "services.6.title": "Composite Component Inspection, Repair, UAV R&D & Manufacturing",
+    "services.6.desc": "UAV development and manufacturing is a cross-disciplinary systems engineering effort, integrating aerospace engineering, mechanical structures, electronics and control systems, software algorithms, and system integration testing to ensure flight safety, mission reliability, and production feasibility. UAV development is not just about aircraft design—it's about complete mission system engineering integration. A successful UAV product requires optimal balance between performance, reliability, cost, and regulatory compliance, with continuous upgrade and expansion capabilities.",
     
     // News
     "news.title": "Latest News",
