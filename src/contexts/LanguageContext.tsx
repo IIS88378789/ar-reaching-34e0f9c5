@@ -51,7 +51,7 @@ const translations = {
     "services.4.desc": "各項硬體, 電腦軟體設定, 消耗器材更換等",
     "services.5.title": "帷幕測試發動機組裝維修",
     "services.5.desc": "風雨測試發動機試車臺, 提供700 PA, 1000 PA ,13級風速測試, 達到TAF 標準測試",
-    "services.6.title": "複合材料零組件檢查，維修，製造",
+    "services.6.title": "複合材料零組件檢查，維修，無人機研發，製造",
     "services.6.desc": "在航空航太工業中至關重要。這些流程需要遵循嚴格的標準和採用專門技術，針對性修補方法和多樣化的製造工藝。",
     
     // News
