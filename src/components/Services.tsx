@@ -18,6 +18,7 @@ import serviceA320_3 from "@/assets/service-a320-3.jpg";
 import serviceComposite1 from "@/assets/service-composite-1.jpg";
 import serviceComposite2 from "@/assets/service-composite-2.jpg";
 import serviceComposite3 from "@/assets/service-composite-3.jpg";
+import serviceUavBlueprint from "@/assets/service-uav-blueprint.png";
 import {
   Carousel,
   CarouselContent,
@@ -63,7 +64,7 @@ const Services = () => {
       icon: Layers,
       title: t("services.6.title"),
       description: t("services.6.desc"),
-      images: [serviceComposite1, serviceComposite2, serviceComposite3],
+      images: [serviceComposite1, serviceComposite2, serviceComposite3, serviceUavBlueprint],
     },
   ];
 
